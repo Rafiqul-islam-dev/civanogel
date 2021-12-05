@@ -1,0 +1,55 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.menu-item {
+    @apply px-2 py-1 text-base inline-block text-white hover:text-pink-300 duration-200;
+}
+
+.section-title {
+    @apply font-bold text-4xl text-center my-5; 
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    @apply bg-gray-500 border-gray-500 border-2 text-white px-4 py-2 inline-block rounded-md font-bold hover:bg-transparent hover:text-black hover:border-gray-900 duration-150;
+}
+
+.btn-outline {
+    @apply hover:border-gray-900 border-black border-2 text-black px-4 py-2 inline-block rounded-md font-bold hover:text-black hover:border-gray-900 duration-150;
+}
+
+a {
+    @apply hover:text-black duration-150;
+}
+.stuck {
+    @apply bg-white duration-200 shadow-md z-50;
+}
+.stuck .menu-item {
+    @apply text-black hover:text-yellow-500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Liberation Serif", sans-serif;
+    font-weight: bold;
+}
+
+select:focus {
+    outline: none;
+    outline-offset: 0;
+    border: 0;
+    --tw-ring-shadow: 0;
+}
+
+body {
+    background: #fffdf9;
+}
