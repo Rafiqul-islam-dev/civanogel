@@ -1,7 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Homecontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [Homecontroller::class, 'home'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
