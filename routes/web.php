@@ -21,6 +21,7 @@ use App\Http\Controllers\PropertyController;
 
 Route::get('/', [Homecontroller::class, 'home'])->name('home');
 Route::get('/property/{id}', [PropertyController::class, 'single'])->name('singleProperty');
+Route::get('/properties', [PropertyController::class, 'index'])->name('properties');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

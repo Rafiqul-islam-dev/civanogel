@@ -18,7 +18,7 @@
                 <li class="mx-3"><i class="fa fa-angle-right"></i></li>
                 <li><a class="text-base text-red-800" href="#">Property</a></li>
                 <li class="mx-3"><i class="fa fa-angle-right"></i></li>
-                <li></li>
+                <li>{{ $property->name }}</li>
             </ul>
         </div>
     </div>
@@ -28,11 +28,13 @@
         <div class="container mx-auto">
             <div class="flex justify-between">
                 <div class="w-8/12">
-                    <h2 class="text-3xl text-gray-600"></h2>
+                    <h2 class="text-3xl text-gray-600">{{ $property->name }}</h2>
                     <h3 class="text-lg mt-2">Price: <span class="text-red-800">
-                       
+                        @if ($property)
+                        {{ number_format($property->price, 2, ',', ',') }} TL
+                    @else
                    500,00,00 TL
-                   
+                   @endif
                 </span></h3>
                 </div>
                 <div class="w-3/12">
@@ -79,7 +81,7 @@
                 <div class="flex justify-between items-center bg-white p-8 mt-10 shadow-sm">
                     <h4 class="text-lg w-2/12">Overview</h4>
                     <div class="border-l-2 border-gray-300 pl-5 ml-5 w-10/12 text-base">
-                        <p>lorem</p>
+                        <p>{{ $property->overview }}</p>
                     </div>
                 </div>
 
@@ -94,14 +96,19 @@
                                             class="fa fa-home mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Type:</span></div>
                                     <span class="ml-2 font-bold">
-                                        type
-                                       </span>
+                                        @if ($property->type == 0)
+                                        Land
+                                        @elseif($property->type == 1)
+                                        Appertment
+                                        @elseif($property->type == 2)
+                                        Villa
+                                        @endif</span>
                                 </li>
                                 <li class="flex text-sm">
                                     <div class="flex"><i
                                             class="fa fa-bed mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Bedrooms:</span></div>
-                                    <span class="ml-2 font-bold">lorem</span>
+                                    <span class="ml-2 font-bold">{{ $property->bedrooms }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -111,13 +118,13 @@
                                     <div class="flex"><i
                                             class="fa fa-shower mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Bathrooms:</span></div>
-                                    <span class="ml-2 font-bold">lorem</span>
+                                    <span class="ml-2 font-bold">{{ $property->bathrooms }}</span>
                                 </li>
                                 <li class="flex text-sm">
                                     <div class="flex"><i
                                             class="fa fa-map-marker mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Location:</span></div>
-                                    <span class="ml-2 font-bold capitalize">lorem</span>
+                                    <span class="ml-2 font-bold capitalize">{{ $property->location->name }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -127,14 +134,22 @@
                                     <div class="flex"><i
                                             class="fa fa-gratipay mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Living space sqm:</span></div>
-                                    <span class="ml-2 font-bold">lorem</span>
+                                    <span class="ml-2 font-bold">{{ $property->net_sq_meter }}</span>
                                 </li>
                                 <li class="flex text-sm">
                                     <div class="flex"><i
                                             class="fa fa-low-vision mr-2 text-red-400 w-5 text-center"></i><span
                                             class="text-sm">Pool</span></div>
                                     <span class="ml-2 font-bold">
-                                        Pool
+                                        @if($property->pool == 0)
+                                        No
+                                        @elseif($property->pool == 1)
+                                        Private
+                                        @elseif($property->pool == 2)
+                                        Public
+                                        @elseif($property->pool == 3)
+                                        Both
+                                        @endif
                                     </span>
                                 </li>
                             </ul>
@@ -148,15 +163,24 @@
                 <div class="flex justify-between items-center bg-white p-8 mt-10 shadow-sm">
                     <h4 class="text-lg w-2/12">Why buy this Property</h4>
                     <div class="border-l-2 border-gray-300 pl-5 ml-5 w-10/12 text-base">
-                        
+                        {{ $property->why_buy }}
+                        {{-- <ul>
+                            <li>- Five-star homes with access to private bay and beach</li>
+                            <li>- Designed in partnership with worldwide hotel chain</li>
+                            <li>- Hotel services and on-site social facilities for residents</li>
+                            <li>- All suites are listed for sale as completely furnished</li>
+                            <li>- Private swimming pools with magnificent full sea panorama</li>
+                            <li>- Dedicated rental team for investors and those seeking income</li>
+                            <li>- Land and sea shuttle services available</li>
+                        </ul> --}}
                     </div>
                 </div>
 
                 {{-- Description --}}
                 <div class="bg-white p-8 mt-10 shadow-sm" id="description">
 
-                   
-
+                    {{ $property->description }}
+{{--
                     <h2 class="font-bold mb-2"> FACILITIES &amp; LOCATION</h2>
 
                     <p>With beautiful views across the sea and bay, these stunning properties are luxury-designed
@@ -226,7 +250,7 @@
                     <p>Bodrum Marina within 6 sea miles</p>
                     <p>Kos Island within 14 sea miles</p>
                     <p>Gokova Peninsula within 44 sea miles</p>
-                    <p>Symi Island within 83 sea miles</p>
+                    <p>Symi Island within 83 sea miles</p> --}}
 
                 </div>
 

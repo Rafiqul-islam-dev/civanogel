@@ -9,7 +9,7 @@ class Homecontroller extends Controller
 {
     public function home()
     {
-        $latestPropertise = Property::all();
+        $latestPropertise = Property::latest()->get()->take(4);
         return view('welcome', ['latestPropartise' => $latestPropertise]);
     }
 }

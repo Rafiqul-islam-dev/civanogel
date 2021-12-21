@@ -16,12 +16,23 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('feature_img');
+            $table->string('featured_image');
+            $table->unsignedBigInteger('location_id');
             $table->unsignedBigInteger('price');
-            $table->unsignedBigInteger('sale')->default(1)->comment('0=rent, 1=sale');
-            $table->unsignedBigInteger('type')->default(1)->comment('0=land, 1=appartment, 2=villa');
-            $table->unsignedBigInteger('bedroom')->nullable();
+            $table->unsignedBigInteger('sale')->default(1)->comment('1=rent, 2=sale');
+            $table->unsignedBigInteger('type')->default(1)->comment('1=land, 2=appartment, 3=villa');
+            $table->unsignedBigInteger('bedrooms')->nullable();
+            $table->unsignedBigInteger('bathrooms')->nullable();
+            $table->unsignedBigInteger('net_sq_meter')->nullable();
+            $table->unsignedBigInteger('gross_sq_meter')->nullable();
+            $table->unsignedBigInteger('pool')->nullable()->comment('1=no,2=private,3=public,4=both');
+            $table->string('overview');
+            $table->longText('why_buy')->nullable();
+            $table->longText('description');
             $table->timestamps();
+
+            // $table->foreign('featured_media_id')->references('id')->on('media');
+            $table->foreign('location_id')->references('id')->on('locations');
         });
     }
 
