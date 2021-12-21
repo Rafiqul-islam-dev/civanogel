@@ -7,6 +7,9 @@
         #header_area a:hover {
             color: #991b1b
         }
+        .sm\:hidden {
+    display: inline-flex;
+}
     </style>
 
 
