@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Homecontroller;
+use App\Http\Controllers\PropertyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\Homecontroller;
 // });
 
 Route::get('/', [Homecontroller::class, 'home'])->name('home');
+Route::get('/property/{id}', [PropertyController::class, 'single'])->name('singleProperty');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
