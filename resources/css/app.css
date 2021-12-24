@@ -264,7 +264,11 @@ input:focus {
 /* Search Form */
 
 .single-search-field {
+    max-width: 100%;
     @apply flex flex-col mx-3;
+}
+.single-search-field select{
+    @apply text-sm;
 }
 .search-field-border {
     @apply py-3 self-center border-gray-500 border-2;

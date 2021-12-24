@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Location;
 use App\Models\Property;
+use Illuminate\Http\Request;
 
-class Homecontroller extends Controller
+class HomeController extends Controller
 {
+
     public function home()
     {
-        $latestPropertise = Property::latest()->get()->take(4);
-        return view('welcome', ['latestPropartise' => $latestPropertise]);
+
+        $property = Property::latest()->take(3)->get();
+        $locations = Location::select('name','id')->get();
+
+        return view('welcome')->with(['properties' => $property,'locations'=>$locations]);
     }
 }

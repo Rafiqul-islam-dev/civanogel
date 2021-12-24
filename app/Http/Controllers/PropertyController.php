@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class PropertyController extends Controller
     {
         // Get All Property
         $properties = Property::latest();
+        $locations = Location::select('name', 'id')->get();
 
         // Check for Rent/Sale
         if (!empty($request->sale)) {
@@ -39,7 +41,7 @@ class PropertyController extends Controller
             if ($price == 500001) {
                 $priceMin = 500000;
                 $properties = $properties->where('price', '>', $priceMin);
-            } else {
+            }else{
                 if ($price == 100000) {
                     $priceMin = 0;
                     $priceMax = 100000;
@@ -52,7 +54,7 @@ class PropertyController extends Controller
                 } elseif ($price == 400000) {
                     $priceMin = 300000;
                     $priceMax = 400000;
-                } elseif ($price == 500000) {
+                }elseif ($price == 500000) {
                     $priceMin = 400000;
                     $priceMax = 500000;
                 }
@@ -61,21 +63,28 @@ class PropertyController extends Controller
         }
 
         // check bedrooms
-        if (!empty($request->bedrooms)) {
+        if(!empty($request->bedrooms)){
             $properties = $properties->where('bedrooms', $request->bedrooms);
         }
 
+        // Check Location
+        if (!empty($request->location)) {
+            $properties = $properties->where('location_id', $request->location);
+        }
+
+        // Query
+        if (!empty($request->search)) {
+            $properties = $properties->where('name', 'LIKE', '%'. $request->search . '%');
+        }
 
 
         $properties = $properties->paginate(12);
 
-        return view('property.index')->with('properties', $properties);
+        return view('property.index')->with(['properties'=>$properties,'locations'=> $locations]);
     }
 
 
-
-
-    public function single($id)
+    public function singleProperty($id)
     {
         $property = Property::with('gallery', 'location')->findOrFail($id);
 

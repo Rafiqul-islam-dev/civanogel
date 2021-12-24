@@ -7,16 +7,27 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon-16x16.png') }}">
+
         <!-- Fonts -->
-{{--        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">--}}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="https://fontawesome.com/v4.7/assets/font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="{{ asset('/fonts/fonts.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        <!-- Scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        @if (!request('/'))
+            <style>
+                #header_area a {
+                    color: #000
+                }
+
+                #header_area a:hover {
+                    color: #991b1b
+                }
+            </style>
+        @endif
 
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>

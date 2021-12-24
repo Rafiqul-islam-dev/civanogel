@@ -4,7 +4,7 @@
     <div class="flex -mx-3 justify-between my-14">
         <div class="flex-1 mx-3">
             <div class="flex rounded-md shadow-md bg-white overflow-hidden">
-                <img src="/img/advice.jpg" width="150" alt="">
+                <img src="https://picsum.photos/150/150?random=23" width="150" alt="">
                 <div class="p-4">
                     <h2 class="mb-4 font-normal text-xl">Renting in Dubai compared to the UK</h2>
                     <button class="btn text-sm">More details</button>
@@ -14,7 +14,7 @@
         <!-- Single Box -->
         <div class="flex-1 mx-3">
             <div class="flex rounded-md shadow-md bg-white overflow-hidden">
-                <img src="/img/advice.jpg" width="150" alt="">
+                <img src="https://picsum.photos/150/150?random=53" width="150" alt="">
                 <div class="p-4">
                     <h2 class="mb-4 font-normal text-xl">Renting in Dubai compared to the UK</h2>
                     <button class="btn text-sm">More details</button>
@@ -24,7 +24,7 @@
         <!-- Single Box -->
         <div class="flex-1 mx-3">
             <div class="flex rounded-md shadow-md bg-white overflow-hidden">
-                <img src="/img/advice.jpg" width="150" alt="">
+                <img src="https://picsum.photos/150/150?random=21" width="150" alt="">
                 <div class="p-4">
                     <h2 class="mb-4 font-normal text-xl">Renting in Dubai compared to the UK</h2>
                     <button class="btn text-sm">More details</button>
@@ -77,9 +77,6 @@
 <div class="bg-cover relative z-0 -mt-12 py-32" style="background-image: url('/img/footer-bg.jpg')">
     <div class="absolute left-0 top-0 z-1 w-full h-full" style="background-image: linear-gradient(white, transparent);"></div>
 </div>
-
-
-
 
 
 

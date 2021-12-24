@@ -1,16 +1,5 @@
 <x-guest-layout>
-    <style>
-        #header_area a {
-            color: #000
-        }
 
-        #header_area a:hover {
-            color: #991b1b
-        }
-        .sm\:hidden {
-    display: inline-flex;
-}
-    </style>
 
 
     {{-- Breadcrumb --}}
@@ -81,6 +70,8 @@
                         @elseif (request('price') == 500000)
                         and More than 5,00,000 TL Price
                         @endif
+                        from
+                        {{ request('location') ?? 'all Location' }}
                     </h3>
                     <h4 class="text-sm font-normal"><span class="font-bold">{{ $properties->total() }}</span> Property
                         Found</h4>
@@ -106,7 +97,7 @@
                 </div>
 
                 <div class="bg-white p-5 rounded-md">
-                    {{ $properties->links() }}
+                    {{ $properties->withQueryString()->links() }}
                 </div>
 
 

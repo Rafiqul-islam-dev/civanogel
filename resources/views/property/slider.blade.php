@@ -1,3 +1,5 @@
+
+
 <div class="largeSlider">
     @forelse ($property->gallery as $item)
     <div class="single-item" style="background-image: url('{{ $item->name }}')"></div>

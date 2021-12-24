@@ -1,5 +1,5 @@
 <form action="{{ route('properties') }}" method="GET" class="flex justify-between search-form">
-    <div class="flex w-7/12 justify-between">
+    <div class="flex w-8/12 justify-between">
         <div class="single-search-field">
            @if (request('sale'))
                <label class="inputLabel" for="sale">Rent/Sale</label>
@@ -10,6 +10,20 @@
                 <option {{ request('sale') ==2 ? 'selected="selected"' :'' }} value="2">Sale</option>
             </select>
         </div>
+        <div class="search-field-border"></div>
+
+        <div class="single-search-field">
+            @if (request('location'))
+            <label class="inputLabel" for="location">Location</label>
+            @endif
+            <select name="location" id="sale" class="border-0">
+                <option value="">Select Location</option>
+                @foreach ($locations as $location)
+                    <option {{ request('location') == $location->id ? 'selected="selected"':'' }} value="{{ $location->id }}">{{ $location->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="search-field-border"></div>
         <div class="single-search-field">
             @if (request('type'))
@@ -49,8 +63,8 @@
             </select>
         </div>
     </div>
-    <div class="flex justify-between items-center w-4/12 ml-5 search-submit">
-        <input type="search" name="search_location" placeholder="Search by Locationn"
+    <div class="flex justify-between items-end w-2/12 ml-5 search-submit">
+        <input value="{{ request('search') }}" type="search" name="search" placeholder="Search by Locationn"
             class="rounded-lg px-4 py-2 w-full mr-4">
         <button type="submit" class="btn">Search</button>
     </div>
