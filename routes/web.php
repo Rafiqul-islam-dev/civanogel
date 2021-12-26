@@ -3,24 +3,17 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-// routes/web.php
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-{
-    Route::get('/', [HomeController::class, 'home'])->name('home');
-
-    Route::get('/property/{id}', [PropertyController::class, 'singleProperty'])->name('singleProperty');
-    Route::get('/properties', [PropertyController::class, 'index'])->name('properties');
-    Route::get('/page/{slug}', [PageController::class, 'single'])->name('page');
-    Route::post('/property-inquery/{id}', [ContactController::class,'propertyinquery'])->name('property-inquery');
-});
+Route::get('/', [HomeController::class,'home'])->name('home');
 
 
 
+Route::get('/property/{id}', [PropertyController::class,'singleProperty'])->name('singleProperty');
+Route::get('/properties', [PropertyController::class,'index'])->name('properties');
+
+Route::get('/page/{slug}', [PageController::class,'single'])->name('page');
 
 
 
