@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
+
+
         Location::factory(10)->create();
         Property::factory(155)->create();
         Media::factory(500)->create();
