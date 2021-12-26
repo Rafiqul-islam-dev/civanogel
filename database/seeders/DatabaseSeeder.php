@@ -7,6 +7,8 @@ use App\Models\Media;
 use App\Models\Page;
 use App\Models\Property;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +19,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name'  => 'Rafiqul Islam',
+            'email' => 'sohelRana@gmail.com',
+            'password'=> Hash::make('123'),
+        ]);
+
+
         Location::factory(10)->create();
         Property::factory(155)->create();
         Media::factory(500)->create();

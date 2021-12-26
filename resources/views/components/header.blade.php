@@ -10,7 +10,7 @@
     <div class="w-full">
         <ul class="flex justify-center items-center">
             <li><a class="menu-item" href="{{ route('properties') }}/?type=land">Land</a></li>
-            <li><a class="menu-item" href="{{ route('properties') }}/?type=villa">Villa</a></li>
+            <li><a class="menu-item" href="{{ route('properties') }}/?type=villa">{{__('villa')}}</a></li>
             <li><a class="menu-item" href="{{ route('properties') }}/?type=appartment">Appertment</a></li>
             <li><a class="menu-item" href="{{ route('page','about-us') }}">About Us</a></li>
             <li><a class="menu-item" href="{{ route('page','contact-us') }}">Contact Us</a></li>
@@ -18,7 +18,7 @@
     </div>
 
     <div class="min-w-max text-3xl">
-        <a href="#">🇺🇸</a>
-        <a href="#">🇧🇩</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL('en') }}">🇺🇸</a>
+        <a href="{{ LaravelLocalization::getLocalizedURL('bn') }}">🇧🇩</a>
     </div>
 </div>
